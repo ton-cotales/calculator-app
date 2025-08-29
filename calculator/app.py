@@ -10,11 +10,12 @@ class CalculatorApp:
         self.root.title('Calculator')
         self.root.geometry(self.new_geometry(280, 340))
         self.root.resizable(False, False)
+        self.root.config(background='#303030')
         
         self.ui = CalculatorUI(self.root)
         
         if self.ui.images:
-            icon = load_image(self.ui.images['icon.png'])
+            icon = self.ui.images['icon.png']
             self.root.iconphoto(True, icon)
         
     def new_geometry(self, width: int, height: int) -> str:
