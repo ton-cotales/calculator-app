@@ -8,6 +8,7 @@ class CalculatorApp:
         self.root = Tk()
         self.root.title('Calculator')
         self.root.geometry(self.new_geometry(280, 340))
+        self.root.resizable(False, False)
         
         self.ui = CalculatorUI(self.root)
         
