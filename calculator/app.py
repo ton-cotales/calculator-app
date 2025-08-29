@@ -1,4 +1,5 @@
 from tkinter import Tk
+from calculator.utils import has_application_icons, load_image
 from calculator.ui import CalculatorUI
 
 
@@ -12,6 +13,10 @@ class CalculatorApp:
         
         self.ui = CalculatorUI(self.root)
         
+        if self.ui.images:
+            icon = load_image(self.ui.images['icon.png'])
+            self.root.iconphoto(True, icon)
+        
     def new_geometry(self, width: int, height: int) -> str:
         scrn_width = self.root.winfo_screenwidth()
         scrn_height = self.root.winfo_screenheight()
@@ -24,4 +29,5 @@ class CalculatorApp:
         return f"{width}x{height}+{x}+{y}"
     
     def run(self):
-        self.root.mainloop()
+        if has_application_icons():
+            self.root.mainloop()
